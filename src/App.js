@@ -1,10 +1,10 @@
 import "./App.css";
 import { useState, useEffect } from "react";
-import Searchbar from "./Components/ImageFinder/Searchbar";
-import ImageGallery from "./Components/ImageFinder/ImageGallery";
-import Button from "./Components/ImageFinder/Button";
-import Modal from "./Components/ImageFinder/Modal";
-import Loader from "./Components/ImageFinder/Loader";
+import Searchbar from "./Components/Searchbar/Searchbar";
+import ImageGallery from "./Components/ImageGallery/ImageGallery";
+import Button from "./Components/Button/Button";
+import Modal from "./Components/Modal/Modal";
+import Loader from "./Components/Loader/Loader";
 import getPictures from "./helpers/fetch";
 
 function App() {
@@ -78,7 +78,6 @@ function App() {
       />
       {loader && <Loader />}
       <ImageGallery showModal={hendleShowModal} images={images} />
-      {loader && <Loader />}
       {!!images.length && <Button onLoadMore={hendleLoadMore} />}
       {modal && <Modal closeModal={hendleCloseModal} modalImg={modal} />}
     </div>

@@ -1,24 +1,20 @@
 import { useState } from "react";
-import Loader from "./Loader";
+import Loader from "../Loader/Loader";
+import s from "./ImageGalleryItem.module.css";
 
 function ImageGalleryItem({ url, alt, modalUrl, showModal }) {
   const [load, setLoad] = useState(true);
 
   return (
-    <li
-      style={{ position: "relative", zIndex: -1 }}
-      className="ImageGalleryItem"
-    >
+    <li onClick={() => showModal(modalUrl)} className="ImageGalleryItem">
       <img
         onLoad={() => setLoad(false)}
-        style={{ position: "relative", zIndex: -1 }}
-        onClick={() => showModal(modalUrl)}
         src={url}
         alt={alt}
         className="ImageGalleryItem-image"
       />
       {load && (
-        <div style={{ position: "absolute", zIndex: 9999 }}>
+        <div className={s.loader}>
           <Loader />
         </div>
       )}
